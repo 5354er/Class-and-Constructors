@@ -66,3 +66,27 @@ const sum = (...args) => {
 }
 
 console.log(sum(1,2))
+
+// Translate Pig Latin
+
+function translatePigLatin(str) {
+  let newStr = "";
+  const reg = /[aeiou]/gi;
+
+  if(str[0].match(reg)) {
+    newStr = str + "way";
+  } else if(str.match(reg) === null) {
+    console.log(str.match(reg))
+    
+    newStr = str + "ay";
+  } else {
+    let vowelIndice = str.indexOf(str.match(reg)[0]);
+
+    console.log(str.match(reg)[0])
+    newStr = str.substr(vowelIndice) + str.substr(0, vowelIndice) + "ay";
+  }
+
+  return newStr;
+}
+
+console.log(translatePigLatin("consonant"))
